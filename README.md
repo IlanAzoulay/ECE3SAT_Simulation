@@ -77,6 +77,7 @@ Quelques exceptions ont cependant été faites par esthétisme. Notamment le cub
 
 ## POUR LES ANNEES SUIVANTES: Que faut-il encore rajouter ?
 
+- [ ] Essayer d'améliorer l'Anti-Aliasing (purement esthétique)
 - [ ] Communication Arduino
 - [ ] Comprendre l'algorithme Arduino / Faire une documentation / Refaire le programme
 - [ ] Rajouter des champs de texte pour modifier la vitesse angulaire du CubeSat
