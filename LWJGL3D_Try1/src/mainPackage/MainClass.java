@@ -35,6 +35,7 @@ import engine.shaders.BasicShader;
 import myModels.CubeSat;
 import myModels.Earth;
 import myModels.ModelByMe;
+import windowBuilder.InputWindow;
 
 
 //==== MAINCLASS =================
@@ -72,13 +73,17 @@ public class MainClass {
 		
 		
 		//Create window with settings
-		//window.setIcon("ESPACE logo.png");
+		window.setIcon("Logo_ECE3SAT.png");
 		window.setBackgroundColor(0.0f, 0.0f, 0.0f); //Simple black background, nothin special
 		//(Red, Green, Blue)
 		window.create(); 
 		
 		shader.create();
 		renderer.create();
+		
+		
+		//Create the other window (the one to enter the cube's rotation)
+		InputWindow inputWindow = new InputWindow();
 		
 		
 		// INITIALIZE EVENT HANDLING =======================
@@ -96,6 +101,8 @@ public class MainClass {
 		
 		renderer.processEntity( earth.getEntity() );
 		renderer.processEntity( cubeSat.getEntity() );
+		
+		Vector3f destabilization = new Vector3f();
 		
 		
 		// PUT EVERYTHING IN PLACE =========================
@@ -125,9 +132,7 @@ public class MainClass {
 				
 				//Mouse events
 				if ( (window.isMouseDown(0) || window.isMouseDown(1) ) && !mouseDown ) {
-					System.out.println("CAMERA: " + camera.getPositionX() + " , " + camera.getPositionY() + " , " + camera.getPositionZ() );
-					System.out.println("CUBE  : " + cubeSat.getPositionX() + " , " + cubeSat.getPositionY() + " , " + cubeSat.getPositionZ() );
-					
+					//If you want to do something with the mouse, insert it here
 					window.lockMouse();
 					mouseDown = true;
 				}
@@ -139,6 +144,17 @@ public class MainClass {
 				
 				//== PUT ALL STUFF TO DO HERE ==============================
 				
+				//See if we're receiving any data from the other window
+				if ( inputWindow.SendingData() ) {
+					//Alors on recupere la rotation demandee
+					destabilization = inputWindow.getRotation().div( FPS )  ;
+					//Je divise par le nombre de Frames per Second pour qu'on ait le bon nombre chaque seconde
+					//Et non chaque frame, puisque la rotation se fait a chaque frame
+				}
+				
+				cubeSat.getEntity().addRotation( destabilization );
+				//Et on l'applique au cubeSat
+				
 				//Update all elements
 				earth.update();
 				cubeSat.update();
@@ -146,11 +162,8 @@ public class MainClass {
 				camera.setRotation(0, 180 - cubeSat.getAngleOrbit() , 0);
 				//Rotation that allows the Camera to follow the cube
 				
-				
-				//Speed = 760 -> Correction = 
-				
-				camera.update(window, cubeSat);
-				//Pilot the cube yourself
+				//camera.update(window, cubeSat);
+				//Pilot the camera yourself
 				
 				
 				
@@ -169,11 +182,12 @@ public class MainClass {
 				window.swapBuffers(); //END - Refresh screen
 		
 				//END WHILE CONDITION =================================================================
-				if ( window.closed() ) { running = false; }
+				if ( window.closed() ) { running = false; inputWindow.close(); }
 				//Close window if you press Esc or F4
 				if ( window.isKeyDown(GLFW.GLFW_KEY_ESCAPE) || window.isKeyDown(GLFW.GLFW_KEY_F4 ) ) { 
 					running = false;
 					window.setClose();
+					inputWindow.close();
 				}
 			}
 		}

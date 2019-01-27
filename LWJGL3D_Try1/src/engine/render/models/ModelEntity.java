@@ -44,6 +44,10 @@ public class ModelEntity {
 		transformation.setRotation(transformation.getRotation().add(new Vector3f(x, y, z)));
 	}
 	
+	public void addRotation(Vector3f newRotation ) {
+		transformation.setRotation(transformation.getRotation().add( newRotation ));
+	}
+	
 	public void addScale(float x, float y, float z) {
 		transformation.setScale(transformation.getScale().add(new Vector3f(x, y, z)));
 	}

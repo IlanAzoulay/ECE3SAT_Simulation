@@ -14,10 +14,11 @@ import engine.render.models.ModelEntity;
 public class CubeSat extends ModelByMe {
 	
 	private static final float SIZE = 1f; //random size at this point
+	//Real size is too small for the simulation, compared to Earth
 	
 	private float speedOrbit = 7.66f, // ISS: 7.66 Km/s 
 		speedAngular = 0f, //Will be set later
-		altitude = 4087.73f, // 408 Km
+		altitude = 4087.73f, // 408 Km (made higher for purely esthetic reasons)
 		earthSize,
 		angleOrbit = 0f; //Angle around Earth's orbit
 	
