@@ -66,6 +66,9 @@ public class Window {
 		GLFW.glfwWindowHint( GLFW.GLFW_RESIZABLE, GLFW.GLFW_FALSE ); //This will make our window NOT resizable
 
 		
+		//For anti-aliasing
+		GLFW.glfwWindowHint(GLFW.GLFW_SAMPLES, 4);
+		//GLFW.glEnable(  ); //GL_MULTISAMPLE
 		
 		//And now we're creating the window for real
 		window = GLFW.glfwCreateWindow(width, height, title, 0, 0);            
