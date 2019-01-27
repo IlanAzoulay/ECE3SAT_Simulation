@@ -29,6 +29,7 @@ Si tout cela ne suffit pas, n'hésitez pas à me contacter par Facebook.
 - Installer Eclipse (IDE pour Java)
 - Cloner ce projet et l'importer dans Eclipse
 - Installer LWJGL 3 et configurer les librairies externes. Je conseille de suivre le tutoriel que j'ai utilisé pour ça: https://youtu.be/ISWcMXxl26s
+- Installer WindowBuilder sur Eclipse. C'est un add-on de l'IDE, et donc très facile à ajouter. Suivre ce tutoriel: https://www.youtube.com/watch?v=l0DvVgqy_q8
 
 Note: Pensez à mettre les packages en vue hiérarchique. Sinon le projet risque de ressembler à rien. En haut à droite de la fenêtre "Package explorer" (gauche de l'écran), vous avez une petite flèche allant vers le bas. Cliquez dessus, puis Package presentation -> Hierarchical
 
@@ -41,6 +42,7 @@ Une fois que la simulation est lancée, vous verrez 2 éléments principaux: la 
 J'ai bien galéré à lui faire coller cette texture, et c'est pas pour rien. Vous avez 2 faces qui ressortent:
 - Une face jaune avec un grand T: T comme Terre ou Tether, quoi qu'il en soit, c'est la face qui doit pointer vers la Terre
 - Une face verte avec un joli V: Si le cubeSat vous montre cette face, c'est que tout va bien. C'est la face opposée au Tether, et comme notre vue pointe vers la Terre, le fait de voir cette face veut dire que le cube pointe la face T vers la Terre, et donc que tout va bien.
+
 
 
 ## Architecture du projet
