@@ -151,7 +151,11 @@ public class MainClass {
 					destabilization = inputWindow.getRotation().div( FPS )  ;
 					//Je divise par le nombre de Frames per Second pour qu'on ait le bon nombre chaque seconde
 					//Et non chaque frame, puisque la rotation se fait a chaque frame
+					
+					//( Les chiffres entres manuellement correspondent a des degres / seconde )
 				}
+				
+				
 				
 				cubeSat.getEntity().addRotation( destabilization );
 				//Et on l'applique au cubeSat
@@ -169,7 +173,8 @@ public class MainClass {
 				//Rotation that allows the Camera to follow the cube
 				
 				//camera.update(window, cubeSat);
-				//Pilot the camera yourself
+				//Pilot the camera yourself - Uncomment if you want to do it
+				//But it's not really that important
 				
 				
 				

@@ -61,14 +61,13 @@ public class CubeSat extends ModelByMe {
 	@Override
 	public void update() {
 		
-		entity.setPosition( trajectory( altitude + earthSize ) );
+		entity.setPosition( trajectory( altitude + earthSize, realAltitude + earthSize ) );
 		//Move the Cube around the Earth
-
 	}
 	
 	
 	//Trajectoire circulaire autour de la terre
-	public Vector3f trajectory( float orbitRadius ) {
+	public Vector3f trajectory( float shownOrbitRadius, float realOrbitRadius ) {
 	//GARDER LES COMMENTAIRES. C'EST TOUT LE RAISONNEMENT. J'ai juste deplace les operations.
 		
 		//Que je me souvienne de la fonction d'un cercle...
@@ -77,7 +76,7 @@ public class CubeSat extends ModelByMe {
 		
 		//En passant par la vitesse angulaire et pythagore ?
 		
-		float orbitPerimeter = (float) (Math.PI * 2 * orbitRadius);
+		float orbitPerimeter = (float) (Math.PI * 2 * realOrbitRadius); //Vrai mesures -> j'utilise la vraie altitude
 		//Distance totale que le cube fait en un tour complet
 		
 		float orbitTime = orbitPerimeter / speedOrbit;
@@ -90,12 +89,14 @@ public class CubeSat extends ModelByMe {
 		//entity.setPosition(  new Vector3f( (float)(orbitRadius * Math.cos(angle)) , 0, (float)(orbitRadius * Math.sin(angle)) ) );
 		//L'orbite se fait autour de l'axe Y, donc on travaille sur X et Z
 		
-		float X = (float)(orbitRadius * Math.sin(angleOrbit));
-		float Z = (float)(orbitRadius * Math.cos(angleOrbit));
+		float X = (float)(shownOrbitRadius * Math.sin(angleOrbit));
+		float Z = (float)(shownOrbitRadius * Math.cos(angleOrbit));
+		//Ici, il s'agit des coordonnees montrees, j'utilise donc l'altitude montree et non la vraie altitude
 		
 		//TRIGONOMETRIE BIAAATCH
 		return new Vector3f( X, 0, Z );
 	}
+	
 
 	
 	//GETTERS and SETTERS ==========================

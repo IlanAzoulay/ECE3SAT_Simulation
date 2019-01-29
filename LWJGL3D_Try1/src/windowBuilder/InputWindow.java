@@ -78,9 +78,9 @@ public class InputWindow extends JFrame implements ActionListener  {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblSetCubesatAngular = new JLabel("Set cubeSat angular speed:");
+		JLabel lblSetCubesatAngular = new JLabel("Set cubeSat angular speed (degrees / second ) :");
 		lblSetCubesatAngular.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblSetCubesatAngular.setBounds(20, 11, 176, 20);
+		lblSetCubesatAngular.setBounds(20, 11, 288, 20);
 		frame.getContentPane().add(lblSetCubesatAngular);
 		
 		//TEXT FIELDS (to enter text)
