@@ -144,6 +144,7 @@ public class MainClass {
 				
 				//== PUT ALL STUFF TO DO HERE ==============================
 				
+				
 				//See if we're receiving any data from the other window
 				if ( inputWindow.SendingData() ) {
 					//Alors on recupere la rotation demandee
@@ -154,6 +155,11 @@ public class MainClass {
 				
 				cubeSat.getEntity().addRotation( destabilization );
 				//Et on l'applique au cubeSat
+				
+				//METTRE LA COM ARDUINO ICI
+				
+				//cubeSat.getEntity().setRotation( new Vector3f( x, y, z ) );
+				//TEMPLATE POUR DONNER UNE ROTATION
 				
 				//Update all elements
 				earth.update();

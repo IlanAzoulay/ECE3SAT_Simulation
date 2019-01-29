@@ -18,7 +18,8 @@ public class CubeSat extends ModelByMe {
 	
 	private float speedOrbit = 7.66f, // ISS: 7.66 Km/s 
 		speedAngular = 0f, //Will be set later
-		altitude = 4087.73f, // 408 Km (made higher for purely esthetic reasons)
+		realAltitude = 408.773f; // 408 Km 
+	private float altitude = realAltitude * 10,  //In the simulation, we make it higher for esthetic purposes
 		earthSize,
 		angleOrbit = 0f; //Angle around Earth's orbit
 	
