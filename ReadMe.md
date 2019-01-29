@@ -30,6 +30,7 @@ Si tout cela ne suffit pas, n'hésitez pas à me contacter par Facebook.
 - Cloner ce projet et l'importer dans Eclipse
 - Installer LWJGL 3 et configurer les librairies externes. Je conseille de suivre le tutoriel que j'ai utilisé pour ça: https://youtu.be/ISWcMXxl26s
 - Installer WindowBuilder sur Eclipse. C'est un add-on de l'IDE, et donc très facile à ajouter. Suivre ce tutoriel: https://www.youtube.com/watch?v=l0DvVgqy_q8
+- Installer la librairie RXTX pour la communication Arduino
 
 Note: Pensez à mettre les packages en vue hiérarchique. Sinon le projet risque de ressembler à rien. En haut à droite de la fenêtre "Package explorer" (gauche de l'écran), vous avez une petite flèche allant vers le bas. Cliquez dessus, puis Package presentation -> Hierarchical
 
@@ -79,9 +80,9 @@ Quelques exceptions ont cependant été faites par esthétisme. Notamment le cub
 
 ## POUR LES ANNEES SUIVANTES: Que faut-il encore rajouter ?
 
-- [ ] Essayer d'améliorer l'Anti-Aliasing (purement esthétique)
+- [X] Essayer d'améliorer l'Anti-Aliasing (purement esthétique)
 - [ ] Communication Arduino
 - [ ] Comprendre l'algorithme Arduino / Faire une documentation / Refaire le programme
-- [ ] Rajouter des champs de texte pour modifier la vitesse angulaire du CubeSat
+- [X] Rajouter des champs de texte pour modifier la vitesse angulaire du CubeSat
 - [ ] Rajouter le soleil
 - [ ] Rajouter les capteurs, et tous ces trucs là
