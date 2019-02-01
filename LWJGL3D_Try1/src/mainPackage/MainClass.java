@@ -158,11 +158,12 @@ public class MainClass {
 				
 				
 				cubeSat.getEntity().addRotation( destabilization );
-				//Et on l'applique au cubeSat
+				//Et on l'applique la rotation entree au cubeSat
+				//> A noter: addRotation ajoute un ANGLE, et non une vitesse angulaire
 				
 				//METTRE LA COM ARDUINO ICI
 				
-				//cubeSat.getEntity().setRotation( new Vector3f( x, y, z ) );
+				//cubeSat.getEntity().addRotation( new Vector3f( x, y, z ) );
 				//TEMPLATE POUR DONNER UNE ROTATION
 				
 				//Update all elements

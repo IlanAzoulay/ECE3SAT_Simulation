@@ -70,13 +70,9 @@ public class CubeSat extends ModelByMe {
 	public Vector3f trajectory( float shownOrbitRadius, float realOrbitRadius ) {
 	//GARDER LES COMMENTAIRES. C'EST TOUT LE RAISONNEMENT. J'ai juste deplace les operations.
 		
-		//Que je me souvienne de la fonction d'un cercle...
-		// (x - centreX)^2 + (y - centreY)^2 = R^2 
-		//Pas une bonne idee en fait ?
+		//On va passer par la vitesse angulaire et pythagore
 		
-		//En passant par la vitesse angulaire et pythagore ?
-		
-		float orbitPerimeter = (float) (Math.PI * 2 * realOrbitRadius); //Vrai mesures -> j'utilise la vraie altitude
+		float orbitPerimeter = (float) (Math.PI * 2 * realOrbitRadius); //Vraies mesures -> j'utilise la vraie altitude
 		//Distance totale que le cube fait en un tour complet
 		
 		float orbitTime = orbitPerimeter / speedOrbit;
@@ -85,13 +81,13 @@ public class CubeSat extends ModelByMe {
 		//Avec cette information, je devrais etre capable de calculer l'angle parcourue en 1 frame
 		angleOrbit += (float) Math.toRadians( 360 / ( orbitTime * FPS ) );
 		
-		//Connaissant donc l'angle parcouru, et le rayon, on devrait pouvoir calculer les nouveaux x et y
-		//entity.setPosition(  new Vector3f( (float)(orbitRadius * Math.cos(angle)) , 0, (float)(orbitRadius * Math.sin(angle)) ) );
-		//L'orbite se fait autour de l'axe Y, donc on travaille sur X et Z
 		
+		//Connaissant donc l'angle parcouru, et le rayon, on devrait pouvoir calculer les nouveaux x et y
+		//L'orbite se fait autour de l'axe Y, donc on travaille sur X et Z
 		float X = (float)(shownOrbitRadius * Math.sin(angleOrbit));
 		float Z = (float)(shownOrbitRadius * Math.cos(angleOrbit));
 		//Ici, il s'agit des coordonnees montrees, j'utilise donc l'altitude montree et non la vraie altitude
+		
 		
 		//TRIGONOMETRIE BIAAATCH
 		return new Vector3f( X, 0, Z );
