@@ -177,27 +177,37 @@ public class MainClass {
 					
 					if(cubeSat.getRotationX()>90)
 					{
-						X = cubeSat.getRotationX()-Serialtest.getInputX();
+						//X = cubeSat.getRotationX()-Serialtest.getInputX();
+						X= - Serialtest.getInputX();
 						System.out.println("floX :" + X);
-					}else { X = cubeSat.getRotationX()+Serialtest.getInputX();}
+					}else { 
+						//X = cubeSat.getRotationX()+Serialtest.getInputX();
+						X=  Serialtest.getInputX();
+						}
 					
 					if(cubeSat.getRotationY()>0)
 					{
-						Y = cubeSat.getRotationY()-Serialtest.getInputY();
-						System.out.println("floY :" + Y);
-					}else { Y = cubeSat.getRotationY()+Serialtest.getInputY();}
+						//Y = cubeSat.getRotationY()-Serialtest.getInputY();
+						Y = - Serialtest.getInputY();
+						//System.out.println("floY :" + Y);
+					}else { 
+						//Y = cubeSat.getRotationY()+Serialtest.getInputY();
+						Y =  Serialtest.getInputY();
+						}
 					
 					if(cubeSat.getRotationZ()>0)
 					{
-						Z = cubeSat.getRotationZ()-Serialtest.getInputZ();
-						System.out.println("floZ :" + Z);
-					}else {Z = cubeSat.getRotationZ()+Serialtest.getInputZ();}
+						//Z = cubeSat.getRotationZ()-Serialtest.getInputZ();
+						Z= - Serialtest.getInputZ();
+						//System.out.println("floZ :" + Z);
+					}else {
+						//Z = cubeSat.getRotationZ()+Serialtest.getInputZ();
+						Z=  Serialtest.getInputZ();
+						}
 					
-					cubeSat.getEntity().setRotation(new Vector3f(X,Y,Z));
+					//cubeSat.getEntity().setRotation(new Vector3f(X,Y,Z));
+					cubeSat.getEntity().addRotation(new Vector3f(X,Y,Z));
 				}
-				
-				
-				//cubeSat.getEntity().addRotation(new Vector3f(-Serialtest.getInputX(),-Serialtest.getInputY(),-Serialtest.getInputZ()));
 				
 				//Update all elements
 				earth.update();
